@@ -1,0 +1,18 @@
+meta:
+  environment: java
+  toolchain:
+    name: maven
+    version: "3.8.6"
+
+build:
+  command: mvn clean package -DskipTests
+
+run:
+  command: java -jar target/telegram-web-app.jar
+  containerPort: 8080
+
+network:
+  routes:
+    - path: /
+      port: 8080
+
