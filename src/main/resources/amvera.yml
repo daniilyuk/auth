@@ -1,18 +1,15 @@
 meta:
-  environment: java
+  environment: jvm
   toolchain:
     name: maven
-    version: "3.8.6"
-
+    version: 17
 build:
-  command: mvn clean package -DskipTests
-
+  artifacts:
+    target/*.jar: /
+  args: 'spring-boot:repackage '
 run:
-  command: java -jar target/auth-0.0.1-SNAPSHOT.jar
-  containerPort: 8080
+  jarName: target/auth.jar
+  persistenceMount: /data
+  containerPort: 80
 
-network:
-  routes:
-    - path: /
-      port: 8080
 
