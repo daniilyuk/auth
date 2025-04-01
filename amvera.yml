@@ -8,7 +8,7 @@ build:
   command: mvn clean package -DskipTests
 
 run:
-  command: java -jar target/auth.jar
+  command: java -jar target/auth-0.0.1-SNAPSHOT.jar
   containerPort: 8080
 
 network:
